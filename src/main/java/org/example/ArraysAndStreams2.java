@@ -52,7 +52,9 @@ public class ArraysAndStreams2 {
 
       System.out.printf("count of the number of springs that contain more than 5 characters: %s%n",
               Arrays.stream(strings)
+                      // Filters out strings with 5 or less characters
                       .filter(s -> s.length() > 5)
+                      // Returns the count
                       .count());
 
    }
