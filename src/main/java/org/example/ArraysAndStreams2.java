@@ -3,6 +3,7 @@ package org.example;
 // Fig. 17.12: ArraysAndStreams2.java
 // Demonstrating lambdas and streams with an array of Strings.
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class ArraysAndStreams2 {
@@ -32,6 +33,17 @@ public class ArraysAndStreams2 {
                .filter(s -> s.compareToIgnoreCase("n") < 0)
                .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
                .collect(Collectors.toList()));
+
+      List<Character> vowels = List.of('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U');
+
+      System.out.printf("strings that start with a vowel: %s%n",
+              Arrays.stream(strings)
+                      // Checks if the first letter of the string is a vowel
+                      .filter(s -> vowels.contains(s.charAt(0)))
+                      // Sorts alphabetically
+                      .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
+                      // Converts the stream into a list
+                      .collect(Collectors.toList()));
    }
 } 
 
