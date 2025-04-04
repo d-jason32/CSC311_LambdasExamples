@@ -44,6 +44,17 @@ public class ArraysAndStreams2 {
                       .sorted(String.CASE_INSENSITIVE_ORDER.reversed())
                       // Converts the stream into a list
                       .collect(Collectors.toList()));
+
+      System.out.printf("strings concatenated into a single string: %s%n",
+              Arrays.stream(strings)
+                      // Concatenate the string separated by commas
+                      .collect(Collectors.joining(",")));
+
+      System.out.printf("count of the number of springs that contain more than 5 characters: %s%n",
+              Arrays.stream(strings)
+                      .filter(s -> s.length() > 5)
+                      .count());
+
    }
 } 
 
